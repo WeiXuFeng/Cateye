@@ -1,0 +1,51 @@
+// color 
+@bg:green;
+@yellow:#FFCD32;
+@black:#222;
+@black_o5:rgba(255,255,255,.5);
+
+//字体
+@f-a:20px;
+@f-b:18px;
+@f-c:15px;
+@f-d:12px;
+@f-e:10px;
+
+
+
+// 设计分辨率的根元素大小
+@remSize:37.5px;
+
+// 样式的封装
+.demo{
+    width: 100px;
+    height: 100px;
+    background: @bg;
+  }
+  .w(@px){
+    width: unit(@px/@remSize,rem);
+    // @px=375
+    // width: 100rem;
+    // unit(数量，单位) 给数量添加单位
+  }
+  .h(@px){
+    height: unit(@px/@remSize,rem);
+  }
+  .t_c(){
+    text-align: center;
+  }
+  .l_h(@px){
+    line-height: unit(@px/@remSize,rem);
+  }
+//固定布局
+.fixed(@top,@bottom,@left,@right,@color){
+  position: fixed;
+  top:unit(@top/@remSize,rem);
+  bottom: unit(@bottom/@remSize,rem);
+  left: unit(@left/@remSize,rem );
+  right: unit(@right/@remSize,rem);
+  background: @color;
+}  
+
+
+
