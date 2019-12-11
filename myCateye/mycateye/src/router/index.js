@@ -4,19 +4,24 @@ import move from '../components/move.vue'
 import cinema from '../components/cinema.vue'
 import user from '../components/user.vue'
 
-// import moveDetail from '../page/move/movedetail.vue'
+import movedetail from '../page/move/movedetail.vue'
+import movedetail02 from '../page/move/movedetail02.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/move',
     component: move,
-    // children:[
-    //   {
-    //     path:'detail',
-    //     component:moveDetail
-    //   }
-    // ]
+    children:[
+      {
+        path:'detail',
+        component:movedetail
+      },
+      {
+        path:'soon',
+        component:movedetail02
+      }
+     ]
   },
   {
     path:'/cinema',
@@ -41,7 +46,7 @@ const routes = [
   },
   {
     path:'/',
-    redirect:"/move"
+    redirect:"/move/deitail"
   }
  
 ]

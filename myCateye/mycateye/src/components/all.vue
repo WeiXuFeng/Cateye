@@ -44,6 +44,8 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
+  background: #fff;
+  border-top:1px solid #ccc;
   .routers {
     width: 33%;
   }
@@ -61,7 +63,6 @@ export default {
 .select{
     color:#f03d37;
     .first{
-         color: #f03d37;
         i{
             color: #f03d37;
         }

@@ -1,14 +1,15 @@
 <template>
   <div id="tem_move">
-    <div class="headers">猫眼电影</div>
+    <div class="headers">
+      猫眼电影</div>
     <div class="screen">
       <div class="city">
         <router-link to=''>北京</router-link>
       </div>
       <!--class=city是地址-->
       <div class="switch">
-        <router-link to='' active-class="sel">正在热映</router-link>
-        <router-link to='' active-class="sel">即将热映</router-link>
+        <router-link to='/move/detail' active-class="sel"><span>正在热映</span></router-link>
+        <router-link to='/move/soon' active-class="sel"><span>即将热映</span></router-link>
       </div>
       <!--class='switch是正在热映,和即将上映-->
       <div class="sear">
@@ -18,8 +19,9 @@
       </div>
       <!--class=sear是搜索-->
     </div>
-  
-    <router-view></router-view>
+    <div class="view">
+       <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -30,10 +32,6 @@ export default {};
 <style lang='less'>
 @import url(../style/index.less);
 #tem_move {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
   .headers {
     width: 100%;
     .h(51);
@@ -44,16 +42,16 @@ export default {};
     .l_h(50);
     
 }
-
 // .screen 下一共分为三部分
 .screen{
       width:100%;
-      .h(44);
+      height:44px;
       font-size: @f-c;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      background:#fff;
 
       // .switch 是正在热映和即将上映
       .switch{
@@ -63,6 +61,7 @@ export default {};
         flex-direction: row;
         text-align: center;
         .l_h(44);
+        
         a{
           display: inline-block;
           width:50%;
@@ -84,11 +83,19 @@ export default {};
         color:#666666;
       }
 }
+
 .sel{
             color:#e54847;
             border-bottom: 2px solid #e54847;
+            span{
+              color:#e54847;
+            }
         }
-      
+.view{
+  overflow: hidden;
+  width:100%;
+  flex-grow: 1;
+}
   }
   
 </style>

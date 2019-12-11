@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+      <div>第二次渲染</div>
   </div>
 </template>
 
@@ -10,8 +10,6 @@ export default {
 }
 </script>
 
-<style lang='less'>
-@import url(../style/index.less);
-
+<style>
 
 </style>
