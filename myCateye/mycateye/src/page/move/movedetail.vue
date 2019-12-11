@@ -9,10 +9,12 @@
             <div class="img"><img :src="item.img" alt=""></div>
             <div class="some">
               <p>{{item.nm}}</p>
-              <p>观众评<b>{{item.sc}}</b></p>
+              <p v-if="item.sc?true:false">观众评<b>{{item.sc}}</b></p>
+              <p v-else><b>{{item.wish}}</b>人想看</p>
               <p>主演:{{item.star}}</p>
               <p>{{item.showInfo}}</p>
             </div>
+            <div class="buy"><span>购票</span></div>
           </li>
         </ul>
       </div>
@@ -32,7 +34,7 @@ export default {
     getmoveimg(data){
       for (let index = 0; index < data.length; index++) {
         let  {img} =data[index]
-      console.log(img);
+      // console.log(img);
        let  img2=img.split("/")[2]
        let  img4=img.split("/")[4]
        let  img5=img.split("/")[5]
@@ -112,6 +114,28 @@ mounted(){
           :nth-child(4){
             margin-top:6px;
           }
+        }
+      }
+      .buy{
+        height:110px;
+        .w(50);
+        display: inline-block;
+        font-size: 15px;
+        vertical-align:top;
+        position: relative;
+        span{
+          display:inline-block;
+          background-color: #f03d37;
+          color:#fff;
+          border-radius: 4px;
+          .w(47);
+          .h(27);
+          text-align: center;
+          cursor: pointer;
+          position: absolute;
+          top:50%;
+          left:50%;
+          transform: translate(-50%,-50%)
         }
       }
     } 
