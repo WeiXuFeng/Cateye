@@ -28,7 +28,18 @@ export const future=()=>{
         })
     })
 }
-
+export const imgdetail=(id)=>{
+    var id=id||'1238837'
+    // console.log(id)
+    return new Promise((resolve,reject)=>{
+        let url= `/reander/ajax/detailmovie?movieId=${id}&optimus_uuid=5AC2B3C01CB111EAA218436989BF88279B2DB9BF88484F609D3FF1DB03F33127&optimus_risk_level=71&optimus_code=10`
+        axios.get(url)
+        .then(data2=>{
+            resolve(data2)
+        })
+    
+    })
+}
 
 
 

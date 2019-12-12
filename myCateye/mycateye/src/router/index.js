@@ -6,6 +6,8 @@ import user from '../components/user.vue'
 
 import movedetail from '../page/move/movedetail.vue'
 import movedetail02 from '../page/move/movedetail02.vue'
+
+import everydetail from '../components/detail.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,7 +21,13 @@ const routes = [
       },
       {
         path:'soon',
-        component:movedetail02
+        component:movedetail02,
+        children:[
+          {
+            path:'/move/detail/soon/details',
+            component:everydetail,
+          }
+        ]
       }
      ]
   },
@@ -46,7 +54,7 @@ const routes = [
   },
   {
     path:'/',
-    redirect:"/move/deitail"
+    redirect:"/move/deitail/soon"
   }
  
 ]

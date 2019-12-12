@@ -9,9 +9,6 @@ module.exports={
                 "^/reander":''
             }
           },
-          '/foo': {
-            target: '<other_url>'
-          }
         }
       }
 }

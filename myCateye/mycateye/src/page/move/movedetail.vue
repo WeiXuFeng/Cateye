@@ -4,7 +4,7 @@
       <!--View layer 这是视图层 -->
       <div class="content">
         <ul>
-          <li class="file" v-for="(item,index) in list" :key="index">
+          <li class="file" v-for="(item,index) in list" :key="index" v-on:click="jump(item.id)">
             
             <div class="img"><img :src="item.img" alt=""></div>
             <div class="some">
@@ -25,6 +25,7 @@
 <script>
 import bs from 'better-scroll'
 import {gitrecommend} from '../../api.js'
+
 export default {
   data(){
     return {list:[],abc:[]}
@@ -46,7 +47,10 @@ export default {
       return data
     },
     initBs(){
-      new bs('.Viewlayer')
+      new bs('.Viewlayer',{click:true})
+    },
+     jump(id){
+     this.$router.push({path:'/move/detail/soon/details',query:{id:id}})
     }
  },
 created(){

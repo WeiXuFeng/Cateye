@@ -22,7 +22,7 @@
       <div class="Hcol">
         <div class="go">
           <ol>
-            <li class="allTo" v-for="(items,index) in from" :key="index">
+            <li class="allTo" v-for="(items,index) in from" :key="index" v-on:click="jump(items.id)">
               <div class="img">
                 <img :src="items.img" alt />
               </div>
@@ -47,6 +47,9 @@
         </div>
       </div>
     </div>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -68,17 +71,21 @@ export default {
       return data;
     },
     froms(data1) {
-      console.log(data1);
+      // console.log(data1);
       for (var a = 0; a < data1.length; a++) {
         let { img } = data1[a];
         var c = img.replace(/w\.h\//g, "");
         data1[a].img = c;
       }
       return data1;
+    },
+    jump(id){
+     this.$router.push({path:'/move/detail/soon/details',query:{id:id}})
     }
   },
   created() {
     gitExpect().then(data => {
+      
       let list = this.horizontal(data.coming);
       this.list = list;
       // console.log(this.list)
