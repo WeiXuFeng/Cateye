@@ -9,8 +9,9 @@
         <div class="bg">
           <img :src="second.img" alt />
         </div>
-        <!-- bg 是背景图,  bgs是具体的内容-->
+        <!-- bg 是背景图,  bgs是具体的内容 -->
         <div class="bgs">
+          <!-- bgs 又分三部分  bigimg,content,three -->
           <div class="bigimg">
             <img :src="second.img" alt />
           </div>
@@ -20,10 +21,10 @@
             <p v-if="second.sc?true:false">{{second.scoreLabel}}{{second.sc}}</p>
             <p v-else>暂未评分</p>
             <p>{{second.cat}}</p>
-            <p>{{second.src}}/{{episodeDur}}</p>
+            <p>{{second.src}}/{{second.episodeDur}}</p>
             <p>{{second.pubDesc}}</p>
           </div>
-          <div class="three"><i class="fa fa-angle-right"></i></div>
+          <div class="three" v-on:click="go(second.id)"><i class="fa fa-angle-right"></i></div>
         </div>
       </div>
     </div>
@@ -47,6 +48,9 @@ export default {
       data5.img = c;
       //  console.log(data5.img)
       return data5;
+    },
+    go(id){
+      this.$router.push({path:'/move/soon/detail02',query:{id:id}})
     }
   },
   created() {
@@ -56,6 +60,7 @@ export default {
       console.log(abc);
       this.second = abc;
       //    console.log(this.second)
+    
     });
   }
 };
@@ -98,8 +103,11 @@ export default {
       width: 100%;
       .h(188);
       position: relative;
+      background:#000;
       .bg {
-        filter: blur(15px);
+        filter: blur(8px);
+        background: #000;
+        opacity: 0.6;
         width: 100%;
         .h(188);
         overflow: hidden;
@@ -109,24 +117,30 @@ export default {
         }
       }
       .bgs {
+        width:100%;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 10;
         padding: 19px 30px 19px 15px;
         .content {
+          .w(170);
+          .h(150);
           float: left;
           color: #fff;
           font-size: @f-b;
           margin-left:12px;
+          overflow:hidden;
           p:nth-child(1) {
             font-size: 20px;
             margin-top: 2px;
             font-weight: 700;
             overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
           p:nth-child(2) {
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 12px;
             color: #fff;
             opacity: 0.8;
@@ -135,14 +149,14 @@ export default {
             font-size: 18px;
             font-weight: 700;
             color: #fc0;
-            margin-top: 11px;
+            margin-top: 5px;
           }
           p:nth-child(5) {
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 12px;
           }
           p:nth-child(6) {
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 12px;
           }
         }
@@ -158,10 +172,11 @@ export default {
         .three{
           position: absolute;
             width: 10px;
-            right: 15px;
+            right: 70px;
             top: 50%;
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+            color:red;
         }
       }
     }

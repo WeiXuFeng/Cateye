@@ -8,6 +8,7 @@ import movedetail from '../page/move/movedetail.vue'
 import movedetail02 from '../page/move/movedetail02.vue'
 
 import everydetail from '../components/detail.vue'
+import detail02 from '../components/detail02.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,7 +29,11 @@ const routes = [
             component:everydetail,
           }
         ]
-      }
+      },
+      {
+        path:"/move/soon/detail02",
+        component:detail02,
+      },
      ]
   },
   {
