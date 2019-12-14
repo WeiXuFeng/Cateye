@@ -41,7 +41,16 @@ export const imgdetail=(id)=>{
     })
 }
 
-
+export const address=()=>{
+    return new Promise((resolve,reject)=>{
+        let url= `/reander/ajax/cinemaList?day=2019-12-14&offset=0&limit=20&districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=true&reqId=1576312917604&cityId=1&optimus_uuid=1EC6A1C01D7311EA9AA1676460F552049B4975BD02324DD0AB79BBB0F71FB937&optimus_risk_level=71&optimus_code=10`
+        axios.get(url)
+        .then(data=>{
+            resolve(data)
+        })
+    
+    })
+}
 
 
 
